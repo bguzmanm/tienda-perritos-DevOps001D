@@ -27,12 +27,12 @@ jobs:
       
       - name: Build Image
         run: |
-          docker build -t tienda-de-perritos .
+          docker build -t tienda/front-end .
 
       - name: Tag Image
         run: |
-          docker tag tienda-de-perritos:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/tienda-de-perritos:latest
+          docker tag tienda/front-end:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/tienda/front-end:latest
 
       - name: Push Image to ECR
         run: |
-          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/tienda-de-perritos:latest
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/tienda/front-end:latest
