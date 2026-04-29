@@ -15,6 +15,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
         with:
           mask-password: true
+          region: ${{ secrets.AWS_REGION }}
       
       - name: Build Image
         run: |
