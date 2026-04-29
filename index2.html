@@ -1,0 +1,209 @@
+<div
+  style="
+    font-family: &quot;Segoe UI&quot;, Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+  "
+>
+  <h2
+    style="
+      text-align: center;
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 10px;
+    "
+  >
+    Diagrama de Trade-offs: Drivers vs. Ideas Fuerza
+  </h2>
+  <p style="font-size: 0.9em; color: #666; text-align: center">
+    Basado en el análisis de arquitectura para la licitación MINVU (Taller 4)
+  </p>
+
+  <div
+    style="
+      margin-bottom: 30px;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    "
+  >
+    <h3 style="color: #e67e22; margin-top: 0">
+      Tensión A: Consistencia Legal vs. Disponibilidad
+    </h3>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 15px 0;
+      "
+    >
+      <div
+        style="
+          flex: 1;
+          text-align: center;
+          padding: 10px;
+          background: #e8f4fd;
+          border: 2px solid #3498db;
+          border-radius: 5px;
+        "
+      >
+        <strong>D1: Trazabilidad</strong><br /><small>(Accountability)</small>
+      </div>
+      <div style="flex: 1; text-align: center; font-size: 24px; color: #3498db">
+        &larr; [ IF1 ] &rarr;
+      </div>
+      <div
+        style="
+          flex: 1;
+          text-align: center;
+          padding: 10px;
+          background: #fdedec;
+          border: 2px dashed #e74c3c;
+          border-radius: 5px;
+        "
+      >
+        <strong>D2: Disponibilidad</strong><br /><small>(Riesgo SPoF)</small>
+      </div>
+    </div>
+    [span_0](start_span)[span_1](start_span)
+    <p style="font-size: 0.95em">
+      <strong>Análisis:</strong> Al elegir un
+      <strong>Repositorio Central (IF1)</strong
+      >[span_0](end_span)[span_1](end_span) [span_2](start_span)para asegurar
+      que todo cambio de estado sea consultable (D1)[span_2](end_span), se
+      acepta el riesgo de un Punto Único de Falla. [span_3](start_span)Se
+      prioriza la integridad legal sobre la resiliencia total[span_3](end_span).
+    </p>
+  </div>
+
+  <div
+    style="
+      margin-bottom: 30px;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    "
+  >
+    <h3 style="color: #e67e22; margin-top: 0">
+      Tensión B: Seguridad vs. Usabilidad
+    </h3>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 15px 0;
+      "
+    >
+      <div
+        style="
+          flex: 1;
+          text-align: center;
+          padding: 10px;
+          background: #e8f4fd;
+          border: 2px solid #3498db;
+          border-radius: 5px;
+        "
+      >
+        <strong>D4: Seguridad</strong><br /><small
+          >(Integridad/Autenticidad)</small
+        >
+      </div>
+      <div style="flex: 1; text-align: center; font-size: 24px; color: #3498db">
+        &larr; [ IF3 ] &rarr;
+      </div>
+      <div
+        style="
+          flex: 1;
+          text-align: center;
+          padding: 10px;
+          background: #fdedec;
+          border: 2px dashed #e74c3c;
+          border-radius: 5px;
+        "
+      >
+        <strong>D5: Accesibilidad</strong><br /><small
+          >(Latencia/Fricción)</small
+        >
+      </div>
+    </div>
+    [span_4](start_span)
+    <p style="font-size: 0.95em">
+      <strong>Análisis:</strong> El uso de
+      <strong>SSO/Clave Única (IF3)</strong>[span_4](end_span)
+      [span_5](start_span)garantiza la autenticidad exigida
+      (D4)[span_5](end_span). [span_6](start_span)El trade-off es la dependencia
+      de servicios externos que pueden degradar la experiencia de usuario
+      (D5)[span_6](end_span).
+    </p>
+  </div>
+
+  <div
+    style="
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    "
+  >
+    <h3 style="color: #e67e22; margin-top: 0">
+      Tensión C: Escalabilidad vs. Consistencia Inmediata
+    </h3>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 15px 0;
+      "
+    >
+      <div
+        style="
+          flex: 1;
+          text-align: center;
+          padding: 10px;
+          background: #e8f4fd;
+          border: 2px solid #3498db;
+          border-radius: 5px;
+        "
+      >
+        <strong>D3: Escalabilidad</strong><br /><small
+          >(Capacidad >1000 users)</small
+        >
+      </div>
+      <div style="flex: 1; text-align: center; font-size: 24px; color: #3498db">
+        &larr; [ IF2 ] &rarr;
+      </div>
+      <div
+        style="
+          flex: 1;
+          text-align: center;
+          padding: 10px;
+          background: #fdedec;
+          border: 2px dashed #e74c3c;
+          border-radius: 5px;
+        "
+      >
+        <strong>D1: Trazabilidad</strong><br /><small>(Inmediata)</small>
+      </div>
+    </div>
+    [span_7](start_span)
+    <p style="font-size: 0.95em">
+      <strong>Análisis:</strong> El uso de
+      <strong>Mensajería (IF2)</strong>[span_7](end_span)
+      [span_8](start_span)permite escalar el sistema (D3)[span_8](end_span).
+      [span_9](start_span)El trade-off es aceptar la "Consistencia Eventual",
+      donde la notificación no es instantánea al cambio de estado
+      (D1)[span_9](end_span).
+    </p>
+  </div>
+</div>
