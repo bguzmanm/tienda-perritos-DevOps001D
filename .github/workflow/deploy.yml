@@ -1,9 +1,9 @@
 name: CI/CD with Github Actions de Tienda de Perritos
 on:
   push:
-    branches: [ main, testing ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, testing ]
+    branches: [ main ]
 jobs:
   build: 
     runs-on: ubuntu-latest
